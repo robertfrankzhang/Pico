@@ -23,6 +23,7 @@ class ProfileController: DatasourceController {
     var userProfileButton = UIButton()
     
     func setupNavigationBarItems(){
+        
     }
     
    
