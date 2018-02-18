@@ -19,6 +19,7 @@
 		E19D0A8F2039C3A6003B1D5F /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A8E2039C3A6003B1D5F /* FriendsController.swift */; };
 		E19D0A912039C3BC003B1D5F /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A902039C3BC003B1D5F /* UserViewController.swift */; };
 		E19D0A932039C713003B1D5F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E19D0A922039C713003B1D5F /* GoogleService-Info.plist */; };
+		E19D0A952039C94E003B1D5F /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A942039C94E003B1D5F /* ThemeColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		E19D0A8E2039C3A6003B1D5F /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
 		E19D0A902039C3BC003B1D5F /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		E19D0A922039C713003B1D5F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E19D0A942039C94E003B1D5F /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
 		F0841A1B1269F4EB51FC301C /* Pods_Pico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -92,6 +94,7 @@
 				E19D0A922039C713003B1D5F /* GoogleService-Info.plist */,
 				E19D0A7C2039BF0A003B1D5F /* Info.plist */,
 				E19D0A742039BF0A003B1D5F /* Pico.xcdatamodeld */,
+				E19D0A942039C94E003B1D5F /* ThemeColors.swift */,
 			);
 			path = Pico;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				E19D0A8B2039C391003B1D5F /* HomeController.swift in Sources */,
 				E19D0A8F2039C3A6003B1D5F /* FriendsController.swift in Sources */,
 				E19D0A8D2039C39C003B1D5F /* ProfileController.swift in Sources */,
+				E19D0A952039C94E003B1D5F /* ThemeColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
