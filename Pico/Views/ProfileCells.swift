@@ -52,8 +52,11 @@ class ProfileView:DatasourceCell{
         
         addSubview(edit)
         edit.anchor(nil, left: profileImage.rightAnchor, bottom: profileImage.bottomAnchor, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 30, heightConstant: 30)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.editImg(tap:)))
+        print(tapGesture.location(in: edit))
         edit.addGestureRecognizer(tapGesture)
+        print("---------------------------------------------- \(edit.bounds)")
         
         addSubview(name)
         name.anchor(profileImage.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: self.frame.width/2-name.intrinsicContentSize.width/2, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
@@ -63,10 +66,15 @@ class ProfileView:DatasourceCell{
         
     }
     
+    @IBAction func tapDetected(_ sender: UITapGestureRecognizer) {
+        print("TAP TAP")
+    }
+    
     func editImg(tap:UITapGestureRecognizer){
-        print("edit")
+        print("edit-------------------------------------------")
     }
 }
+    
 
 class AddAccountHeader:DatasourceCell{
     
@@ -97,9 +105,11 @@ class AddAccountHeader:DatasourceCell{
         
         let gestureTap = UITapGestureRecognizer(target: self, action: #selector(self.add(tap:)))
         self.addGestureRecognizer(gestureTap)
+        
     }
     
     func add(tap:UITapGestureRecognizer){
+
         ProfileController.own.present(UINavigationController(rootViewController:NewAccountController()), animated: true, completion: nil)
     }
 

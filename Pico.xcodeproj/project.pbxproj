@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7C7BBA7CD049C3953B3A0271 /* Pods_Pico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0841A1B1269F4EB51FC301C /* Pods_Pico.framework */; };
-		84E180D8203A21A400AED724 /* Iconic2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E180D7203A21A400AED724 /* Iconic2.png */; };
 		E19D0A6E2039BF0A003B1D5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A6D2039BF0A003B1D5F /* AppDelegate.swift */; };
 		E19D0A702039BF0A003B1D5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A6F2039BF0A003B1D5F /* ViewController.swift */; };
 		E19D0A762039BF0A003B1D5F /* Pico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A742039BF0A003B1D5F /* Pico.xcdatamodeld */; };
@@ -33,7 +32,6 @@
 /* Begin PBXFileReference section */
 		0CBC8BBE337F210091FCB218 /* Pods-Pico.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pico.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pico/Pods-Pico.debug.xcconfig"; sourceTree = "<group>"; };
 		84026098E2AA0764E84910CC /* Pods-Pico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pico.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pico/Pods-Pico.release.xcconfig"; sourceTree = "<group>"; };
-		84E180D7203A21A400AED724 /* Iconic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Iconic2.png; path = ../../../Downloads/Iconic2.png; sourceTree = "<group>"; };
 		E19D0A6A2039BF0A003B1D5F /* Pico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19D0A6D2039BF0A003B1D5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E19D0A6F2039BF0A003B1D5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				E19D0A6D2039BF0A003B1D5F /* AppDelegate.swift */,
 				E19D0A6F2039BF0A003B1D5F /* ViewController.swift */,
 				E19D0A772039BF0A003B1D5F /* Assets.xcassets */,
-				84E180D7203A21A400AED724 /* Iconic2.png */,
 				E19D0A792039BF0A003B1D5F /* LaunchScreen.storyboard */,
 				E19D0A922039C713003B1D5F /* GoogleService-Info.plist */,
 				E19D0A7C2039BF0A003B1D5F /* Info.plist */,
@@ -228,7 +225,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E19D0A7B2039BF0A003B1D5F /* LaunchScreen.storyboard in Resources */,
-				84E180D8203A21A400AED724 /* Iconic2.png in Resources */,
 				E19D0A782039BF0A003B1D5F /* Assets.xcassets in Resources */,
 				E19D0A9C2039E284003B1D5F /* Jura in Resources */,
 				E19D0A932039C713003B1D5F /* GoogleService-Info.plist in Resources */,
