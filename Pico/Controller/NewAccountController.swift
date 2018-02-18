@@ -13,6 +13,8 @@ import UIKit
 class NewAccountController: DatasourceController, UITextFieldDelegate {
     static var own = NewAccountController()
     
+    var hasTapped = false
+    
     lazy var platformTextField:UITextField = {
         let tf = UITextField()
         tf.placeholder = "Social Media Platform (e.g. Snapchat)"
@@ -54,10 +56,11 @@ class NewAccountController: DatasourceController, UITextFieldDelegate {
     
     func buttonPressed(){
         print("hi")
-        if !(platformTextField.text?.isEmpty)! && !(usernameTextField.text?.isEmpty)!{
+        if !(platformTextField.text?.isEmpty)! && !(usernameTextField.text?.isEmpty)! && !hasTapped{
             var account = Account(accountKey: platformTextField.text!, username: usernameTextField.text!, toggled: true)
             myCache.currentCache.accounts.append(account)
             DB.addAccount(account: account)
+            hasTapped = true
         }
     }
     
@@ -69,10 +72,10 @@ class NewAccountController: DatasourceController, UITextFieldDelegate {
         collectionView?.allowsMultipleSelection = true
         
         view.addSubview(platformTextField)
-        platformTextField.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 50, leftConstant: view.frame.width/2-view.frame.width/3, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width*2/3, heightConstant: 80)
+        platformTextField.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 50, leftConstant: view.frame.width/2-view.frame.width/3, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width*2/3, heightConstant: 50)
         
         view.addSubview(usernameTextField)
-        usernameTextField.anchor(platformTextField.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: view.frame.width/2-view.frame.width/3, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width*2/3, heightConstant: 80)
+        usernameTextField.anchor(platformTextField.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: view.frame.width/2-view.frame.width/3, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width*2/3, heightConstant: 50)
         
         view.addSubview(doneButton)
         doneButton.anchor(usernameTextField.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant: 24, leftConstant: view.frame.width/2-50, bottomConstant: 0, rightConstant: 0, widthConstant: 100, heightConstant: 100)
@@ -97,7 +100,7 @@ class NewAccountController: DatasourceController, UITextFieldDelegate {
         backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView:backButton)
         
-        navigationController?.navigationBar.barTintColor = .red//ThemeColor.red
+        navigationController?.navigationBar.barTintColor = ThemeColors.LIGHT_GREEN_MAIN
         let bounds = self.navigationController!.navigationBar.bounds
         navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height*1.5)
         navigationController?.navigationBar.isTranslucent = false
