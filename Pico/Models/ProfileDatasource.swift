@@ -22,7 +22,7 @@ class ProfileDatasource:Datasource{
     }
     override func item(_ indexPath: IndexPath) -> Any? {
         if indexPath.section == 0{
-            return ""
+            return myCache.currentCache.profilePic
         }else{
             return myCache.currentCache.accounts[indexPath.item]
         }

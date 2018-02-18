@@ -42,21 +42,34 @@ class DB{
                         scannedArray.append(newScanned)
                     }
                 }
-                var image = UIImage()
-                if userDictionaryRef["profileURL"] as! String == ""{
-                    image = #imageLiteral(resourceName: "userBlank")
+                
+                
+                if let profileImageURL = userDictionaryRef["profileURL"]{
+                    let url = NSURL(string: profileImageURL as! String)
+                    URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, response, error) in
+                        if error != nil{
+                            print(error)
+                            return
+                        }
+                        DispatchQueue.main.async {
+                            let image = UIImage(data:data!)!
+                            returnUser = Cache(userID:userDictionaryRef["userID"] as! String,email: userDictionaryRef["email"] as! String, firstName: userDictionaryRef["firstName"] as! String, lastName: "", profilePic: image, description: userDictionaryRef["description"] as! String, accounts: accountsArray, scanned: scannedArray)
+                            
+                            if returnUser == nil{
+                                completionHandler(nil)
+                            }else{
+                                completionHandler(returnUser)
+                            }
+                        }
+                    }).resume()
                 }else{
-                    //customize image from storage
+                    returnUser = Cache(userID:userDictionaryRef["userID"] as! String,email: userDictionaryRef["email"] as! String, firstName: userDictionaryRef["firstName"] as! String, lastName: "", profilePic:#imageLiteral(resourceName: "userBlank"), description: userDictionaryRef["description"] as! String, accounts: accountsArray, scanned: scannedArray)
+                    if returnUser == nil{
+                        completionHandler(nil)
+                    }else{
+                        completionHandler(returnUser)
+                    }
                 }
-                
-                
-                returnUser = Cache(userID:userDictionaryRef["userID"] as! String,email: userDictionaryRef["email"] as! String, firstName: userDictionaryRef["firstName"] as! String, lastName: "", profilePic: image, description: userDictionaryRef["description"] as! String, accounts: accountsArray, scanned: scannedArray)
-            }
-            
-            if returnUser == nil{
-                completionHandler(nil)
-            }else{
-                completionHandler(returnUser)
             }
         }, withCancel: nil)
     }

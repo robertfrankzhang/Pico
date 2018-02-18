@@ -65,6 +65,7 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
                                 self.session.stopRunning()
                                 
                                 let alert = UIAlertController(title: "User Detected", message: "Add \(currentUserExists.firstName)?", preferredStyle: .alert)
+                                let alertSuccess = UIAlertController(title: "Success", message: "User \(currentUserExists.firstName) was successfully added!", preferredStyle: .alert)
                                 alert.addAction(UIAlertAction(title: "Add", style: .default, handler: {(nil) in
                                     DB.addUser(user: currentUserExists)
                                     self.session.startRunning()
@@ -76,6 +77,7 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
                                     }
                                     myCache.currentCache.scanned.append(ScannedUser(userID: currentUserExists.userID, accountKeys: validAccounts))
                                     DB.addUser(user: currentUserExists)
+                                    self.present(alertSuccess,animated:true,completion: nil)
                                     
                                 }))
                                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(nil) in

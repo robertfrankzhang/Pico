@@ -45,6 +45,13 @@ class ProfileView:DatasourceCell{
         return label
     }()
     
+    override var datasourceItem: Any?{
+        didSet{
+            var image:UIImage = (datasourceItem as? UIImage)!
+            profileImage.image = image
+        }
+    }
+    
     override func setupViews() {
         super.setupViews()
         backgroundColor = .white
