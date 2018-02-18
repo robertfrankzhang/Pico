@@ -17,7 +17,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
     
     let inputContainerView:UIView = {                   //Box inside of text boxes
         let view = UIView()
-        view.backgroundColor = ThemeColors.GRAY
+        view.backgroundColor = ThemeColors.loginTextBackground
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false

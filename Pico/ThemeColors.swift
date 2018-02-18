@@ -12,7 +12,7 @@ import UIKit
 class ThemeColors{
     //Change these colors to change the entire color scheme
     static var navigationBar = UIColor(red: 189/255, green: 229/255, blue: 172/255, alpha: 1.0)
-    static var loginTextBackground = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
+    static var loginTextBackground = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
     
     //Blues
     static var DARK_BLUE = UIColor(red: 0, green: 82/255, blue: 98/255, alpha: 1.0)
