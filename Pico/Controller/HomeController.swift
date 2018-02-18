@@ -65,16 +65,17 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
                                 self.session.stopRunning()
                                 
                                 let alert = UIAlertController(title: "User Detected", message: "Add \(currentUserExists.firstName)?", preferredStyle: .alert)
-//                                alert.addAction(UIAlertAction(title: "Join", style: .default, handler: {(nil) in
-//                                    DatabaseFactory.DB.joinGroup(groupID: currentGroupExists.groupID)
-//                                    self.session.startRunning()
-//                                    myCache.currentCache.groups.append(currentGroupExists)
-//                                    //self.groupJoinSuccess()
-//                                }))
-//                                alert.addAction(UIAlertAction(title: "View Group", style: .default, handler: {(nil) in
-//                                    self.currentDetectedGroup = currentGroupExists
-//                                    JoinGroupController.own?.present(UINavigationController(rootViewController: GroupInfoController(group:currentGroupExists)), animated: true, completion: nil)
-//                                }))
+                                alert.addAction(UIAlertAction(title: "Add", style: .default, handler: {(nil) in
+                                    DB.addUser(user: currentUserExists)
+                                    self.session.startRunning()
+                                    var validAccounts:[String] = []
+                                    for account in currentUserExists.accounts{
+                                        if account.toggled{
+                                            validAccounts.append(account.accountKey)
+                                        }
+                                    }
+                                    myCache.currentCache.scanned.append(ScannedUser(userID: currentUserExists.userID, accountKeys: validAccounts))
+                                }))
                                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(nil) in
                                     self.session.startRunning()
                                 }))

@@ -53,4 +53,8 @@ class DB{
             }
         }, withCancel: nil)
     }
+    
+    static func addUser(user:Cache){
+        
+    }
 }

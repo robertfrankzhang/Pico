@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7C7BBA7CD049C3953B3A0271 /* Pods_Pico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0841A1B1269F4EB51FC301C /* Pods_Pico.framework */; };
-		84E180D62039DF0800AED724 /* Jura in Resources */ = {isa = PBXBuildFile; fileRef = 84E180D52039DF0800AED724 /* Jura */; };
 		E19D0A6E2039BF0A003B1D5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A6D2039BF0A003B1D5F /* AppDelegate.swift */; };
 		E19D0A702039BF0A003B1D5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A6F2039BF0A003B1D5F /* ViewController.swift */; };
 		E19D0A762039BF0A003B1D5F /* Pico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A742039BF0A003B1D5F /* Pico.xcdatamodeld */; };
@@ -23,12 +22,12 @@
 		E19D0A952039C94E003B1D5F /* ThemeColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A942039C94E003B1D5F /* ThemeColors.swift */; };
 		E19D0A972039CA71003B1D5F /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A962039CA71003B1D5F /* Objects.swift */; };
 		E19D0A992039D7B3003B1D5F /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A982039D7B3003B1D5F /* DB.swift */; };
+		E19D0A9C2039E284003B1D5F /* Jura in Resources */ = {isa = PBXBuildFile; fileRef = E19D0A9B2039E284003B1D5F /* Jura */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0CBC8BBE337F210091FCB218 /* Pods-Pico.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pico.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pico/Pods-Pico.debug.xcconfig"; sourceTree = "<group>"; };
 		84026098E2AA0764E84910CC /* Pods-Pico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pico.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pico/Pods-Pico.release.xcconfig"; sourceTree = "<group>"; };
-		84E180D52039DF0800AED724 /* Jura */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Jura; path = ../../../Jura; sourceTree = "<group>"; };
 		E19D0A6A2039BF0A003B1D5F /* Pico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19D0A6D2039BF0A003B1D5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E19D0A6F2039BF0A003B1D5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +44,7 @@
 		E19D0A942039C94E003B1D5F /* ThemeColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColors.swift; sourceTree = "<group>"; };
 		E19D0A962039CA71003B1D5F /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		E19D0A982039D7B3003B1D5F /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
+		E19D0A9B2039E284003B1D5F /* Jura */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Jura; sourceTree = "<group>"; };
 		F0841A1B1269F4EB51FC301C /* Pods_Pico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -69,14 +69,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		84E180D42039DEF200AED724 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				84E180D52039DF0800AED724 /* Jura */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 		E19D0A612039BF0A003B1D5F = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +90,7 @@
 		E19D0A6C2039BF0A003B1D5F /* Pico */ = {
 			isa = PBXGroup;
 			children = (
+				E19D0A9A2039E26F003B1D5F /* Fonts */,
 				E19D0A982039D7B3003B1D5F /* DB.swift */,
 				E19D0A962039CA71003B1D5F /* Objects.swift */,
 				E19D0A872039C334003B1D5F /* Controller */,
@@ -111,7 +104,6 @@
 				E19D0A7C2039BF0A003B1D5F /* Info.plist */,
 				E19D0A742039BF0A003B1D5F /* Pico.xcdatamodeld */,
 				E19D0A942039C94E003B1D5F /* ThemeColors.swift */,
-				84E180D42039DEF200AED724 /* Fonts */,
 			);
 			path = Pico;
 			sourceTree = "<group>";
@@ -140,6 +132,14 @@
 				E19D0A902039C3BC003B1D5F /* UserViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E19D0A9A2039E26F003B1D5F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E19D0A9B2039E284003B1D5F /* Jura */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		FEA2C89CDE2981075B93DB89 /* Frameworks */ = {
@@ -214,7 +214,7 @@
 			files = (
 				E19D0A7B2039BF0A003B1D5F /* LaunchScreen.storyboard in Resources */,
 				E19D0A782039BF0A003B1D5F /* Assets.xcassets in Resources */,
-				84E180D62039DF0800AED724 /* Jura in Resources */,
+				E19D0A9C2039E284003B1D5F /* Jura in Resources */,
 				E19D0A932039C713003B1D5F /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
