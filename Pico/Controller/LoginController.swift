@@ -152,10 +152,17 @@ class LoginController: DatasourceController, UITextFieldDelegate {
             return
         }
         
+        
         Auth.auth().signIn(withEmail: email2, password: password2, completion: {
             (user,error) in
             if error != nil{
                 print(error)
+                let alert = UIAlertController(title: "Sign In Failed",
+                                              message: "The email and password you entered could not be found. Please try again.",
+                                              preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: {(alert: UIAlertAction!) in print()}))
+                self.present(alert, animated: true)
                 return
             }
             
@@ -168,6 +175,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
             return
         }
         
+        //Create a user
         Auth.auth().createUser(withEmail: email2, password: password2, completion: {(user:User?, error) in
             if error != nil{
                 print(error)
@@ -222,24 +230,6 @@ class LoginController: DatasourceController, UITextFieldDelegate {
         
         view.addSubview(loginRegisterSegmentedControl)
         loginRegisterSegmentedControl.anchor(logo.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 30, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-24, heightConstant: 30)
-        
-        /**
-        view.addSubview(inputContainerViewTop)
-        inputContainerView.anchor(loginRegisterSegmentedControl.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-24, heightConstant: 50)
-        inputContainerViewHeightAnchor = inputContainerView.heightAnchor.constraint(equalToConstant: 150)
-        inputContainerViewHeightAnchor?.isActive = true
-        
-        
-        view.addSubview(inputContainerViewMiddle)
-        inputContainerView.anchor(loginRegisterSegmentedControl.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-24, heightConstant: 50)
-        inputContainerViewHeightAnchor = inputContainerView.heightAnchor.constraint(equalToConstant: 150)
-        inputContainerViewHeightAnchor?.isActive = true
-        
-        view.addSubview(inputContainerViewBottom)
-        inputContainerView.anchor(emailSeparatorView.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-48, heightConstant: 50)
-        inputContainerViewHeightAnchor = inputContainerView.heightAnchor.constraint(equalToConstant: 50)
-        inputContainerViewHeightAnchor?.isActive = true
- */
         
         view.addSubview(inputContainerView)
         inputContainerView.anchor(loginRegisterSegmentedControl.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-24, heightConstant: 150)
