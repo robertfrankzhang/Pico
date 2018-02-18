@@ -17,20 +17,46 @@ class LoginController: DatasourceController, UITextFieldDelegate {
     
     let inputContainerView:UIView = {                   //Box inside of text boxes
         let view = UIView()
-        view.backgroundColor = ThemeColors.DARK_DARK_GRAY
+        view.backgroundColor = ThemeColors.GRAY
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    //Dark blue, Navy, gray, dark gray, orange, red, salmon, green, light green main, dark green, blue green, lime green, olive green
+    
+    let inputContainerViewTop:UIView = {
+        let view = UIView()
+        view.backgroundColor = ThemeColors.GRAY
+        view.layer.cornerRadius = 8
+        view.layer.masksToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let inputContainerViewMiddle:UIView = {
+        let view = UIView()
+        view.backgroundColor = ThemeColors.GRAY
+        view.layer.masksToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let inputContainerViewBottom:UIView = {
+        let view = UIView()
+        view.backgroundColor = ThemeColors.GRAY
+        view.layer.cornerRadius = 8
+        view.layer.masksToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     lazy var loginRegisterButton: UIButton = {          //Login Button
         let button = UIButton(type: .system)
         button.backgroundColor = ThemeColors.CALM_BLUE
         button.setTitle("Register", for: .normal)
         button.layer.cornerRadius = 5
         button.layer.masksToBounds = true
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.addTarget(self, action: #selector(handleLoginOrRegister), for: .touchUpInside)
         return button
@@ -197,12 +223,29 @@ class LoginController: DatasourceController, UITextFieldDelegate {
         view.addSubview(loginRegisterSegmentedControl)
         loginRegisterSegmentedControl.anchor(logo.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 30, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-24, heightConstant: 30)
         
+        /**
+        view.addSubview(inputContainerViewTop)
+        inputContainerView.anchor(loginRegisterSegmentedControl.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-24, heightConstant: 50)
+        inputContainerViewHeightAnchor = inputContainerView.heightAnchor.constraint(equalToConstant: 150)
+        inputContainerViewHeightAnchor?.isActive = true
+        
+        view.addSubview(inputContainerViewMiddle)
+        inputContainerView.anchor(loginRegisterSegmentedControl.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-24, heightConstant: 50)
+        inputContainerViewHeightAnchor = inputContainerView.heightAnchor.constraint(equalToConstant: 150)
+        inputContainerViewHeightAnchor?.isActive = true
+        
+        view.addSubview(inputContainerViewBottom)
+        inputContainerView.anchor(emailSeparatorView.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-48, heightConstant: 50)
+        inputContainerViewHeightAnchor = inputContainerView.heightAnchor.constraint(equalToConstant: 50)
+        inputContainerViewHeightAnchor?.isActive = true
+ */
+        
         view.addSubview(inputContainerView)
         inputContainerView.anchor(loginRegisterSegmentedControl.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-24, heightConstant: 150)
         inputContainerViewHeightAnchor = inputContainerView.heightAnchor.constraint(equalToConstant: 150)
         inputContainerViewHeightAnchor?.isActive = true
         
-        inputContainerView.addSubview(nameTextField)
+        inputContainerView.addSubview(nameTextField)            //Name
         nameTextField.anchor(inputContainerView.topAnchor, left: inputContainerView.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-48, heightConstant: 50)
         nameTextFieldHeightAnchor = nameTextField.heightAnchor.constraint(equalToConstant: 50)
         nameTextFieldHeightAnchor?.isActive = true
@@ -210,13 +253,13 @@ class LoginController: DatasourceController, UITextFieldDelegate {
         inputContainerView.addSubview(nameSeparatorView)
         nameSeparatorView.anchor(nameTextField.bottomAnchor, left: inputContainerView.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-24, heightConstant: 1)
         
-        inputContainerView.addSubview(emailTextField)
+        inputContainerView.addSubview(emailTextField)           //Email
         emailTextField.anchor(nameSeparatorView.bottomAnchor, left: inputContainerView.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-48, heightConstant: 50)
         
         inputContainerView.addSubview(emailSeparatorView)
         emailSeparatorView.anchor(emailTextField.bottomAnchor, left: inputContainerView.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-24, heightConstant: 1)
         
-        inputContainerView.addSubview(passwordTextField)
+        inputContainerView.addSubview(passwordTextField)        //Password
         passwordTextField.anchor(emailSeparatorView.bottomAnchor, left: inputContainerView.leftAnchor, bottom: nil, right: nil, topConstant: 0, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-48, heightConstant: 50)
         
         view.addSubview(loginRegisterButton)
@@ -231,12 +274,14 @@ class LoginController: DatasourceController, UITextFieldDelegate {
  
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {      //Pressing done/enter after text
         self.view.endEditing(true)
+        dismissKeyboard()
+        
         return false
     }
     
-    func dismissKeyboard(){
+    func dismissKeyboard(){                                             //Puts keyboard back down
         if let text:String = nameTextField.text{
             if let num = Int(text){
                 if num >= 0{
@@ -244,6 +289,10 @@ class LoginController: DatasourceController, UITextFieldDelegate {
                 }
             }else if text == ""{
                 nameTextField.resignFirstResponder()
+                inputContainerViewTop.backgroundColor = ThemeColors.GRAY
+            }
+            if text != "" {
+                inputContainerViewTop.backgroundColor = .white
             }
         }
         
@@ -254,6 +303,11 @@ class LoginController: DatasourceController, UITextFieldDelegate {
                 }
             }else if text == ""{
                 emailTextField.resignFirstResponder()
+                emailTextField.backgroundColor = ThemeColors.GRAY
+                //inputContainerView.backgroundColor = ThemeColors.GRAY
+            }
+            if text != "" {
+                inputContainerViewMiddle.backgroundColor = .white
             }
         }
         
@@ -264,6 +318,10 @@ class LoginController: DatasourceController, UITextFieldDelegate {
                 }
             }else if text == ""{
                 passwordTextField.resignFirstResponder()
+                inputContainerViewBottom.backgroundColor = ThemeColors.GRAY
+            }
+            if text != "" {
+                inputContainerViewBottom.backgroundColor = .white
             }
         }
     }
