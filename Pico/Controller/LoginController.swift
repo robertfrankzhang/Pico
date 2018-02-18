@@ -15,19 +15,18 @@ class LoginController: DatasourceController, UITextFieldDelegate {
     
     static var own:LoginController = LoginController()
     
-    let inputContainerView:UIView = {
+    let inputContainerView:UIView = {                   //Box inside of text boxes
         let view = UIView()
-        view.backgroundColor = .white//ThemeColor.whitish
+        view.backgroundColor = ThemeColors.DARK_GRAY
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
-    lazy var loginRegisterButton: UIButton = {
+    //Dark blue, Navy, gray, dark gray, orange, red, salmon, green, light green main, dark green, blue green, lime green, olive green
+    lazy var loginRegisterButton: UIButton = {          //Login Button
         let button = UIButton(type: .system)
-        button.backgroundColor = .yellow
-        //button.backgroundColor = ThemeColor.brightMagenta
+        button.backgroundColor = ThemeColors.DARK_BLUE
         button.setTitle("Register", for: .normal)
         button.layer.cornerRadius = 5
         button.layer.masksToBounds = true
@@ -188,9 +187,9 @@ class LoginController: DatasourceController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         LoginController.own = self
-        view.backgroundColor = .red//ThemeColor.red
+        collectionView?.backgroundColor = ThemeColors.LIGHT_GREEN_MAIN
         
-        let logo = UIImageView(image: #imageLiteral(resourceName: "icon"))
+        let logo = UIImageView(image: #imageLiteral(resourceName: "icon"))              //Change to Pico picture
         view.addSubview(logo)
         logo.contentMode = .scaleAspectFill
         logo.anchor(self.view.topAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: view.frame.height/8, leftConstant: view.frame.width/3, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width/3, heightConstant: view.frame.width/3)
@@ -222,13 +221,14 @@ class LoginController: DatasourceController, UITextFieldDelegate {
         
         view.addSubview(loginRegisterButton)
         loginRegisterButton.anchor(inputContainerView.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-24, heightConstant: 50)
-        
+ 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardNotification), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+ 
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
