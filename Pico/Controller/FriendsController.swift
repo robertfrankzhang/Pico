@@ -19,6 +19,7 @@ class FriendsController: DatasourceController {
         collectionView?.showsVerticalScrollIndicator = false
         setupNavigationBarItems()
         collectionView?.allowsMultipleSelection = true
+        self.datasource = FriendsDatasource()
     }
     
     var userProfileButton = UIButton()

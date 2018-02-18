@@ -13,6 +13,8 @@ import UIKit
 
 class UserViewController: DatasourceController {
     
+    var user:Cache
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = .white//ThemeColor.whitish
@@ -22,6 +24,15 @@ class UserViewController: DatasourceController {
     }
     
     var userProfileButton = UIButton()
+    
+    override init(user:Cache) {
+        super.init()
+        self.user = user
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     func setupNavigationBarItems(){
         var calendarLabel = UILabel()
