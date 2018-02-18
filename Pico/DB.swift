@@ -57,4 +57,8 @@ class DB{
     static func addUser(user:Cache){
         
     }
+    
+    static func getCurrentUserID()->String?{
+        return Auth.auth().currentUser?.uid
+    }
 }

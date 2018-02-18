@@ -1,5 +1,5 @@
 //
-//  UserViewController.swift
+//  QRController.swift
 //  Pico
 //
 //  Created by Robert Frank Zhang on 2/18/18.
@@ -11,7 +11,13 @@ import Foundation
 import LBTAComponents
 import UIKit
 
-class UserViewController: DatasourceController {
+class QRController: DatasourceController {
+    
+    let QRCode:UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .white
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,13 +25,28 @@ class UserViewController: DatasourceController {
         collectionView?.showsVerticalScrollIndicator = false
         setupNavigationBarItems()
         collectionView?.allowsMultipleSelection = true
+        
+        print(myCache.currentCache.userID)
+        view.addSubview(QRCode)
+        QRCode.anchor(view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, topConstant:view.frame.height/3-view.frame.height/6, leftConstant: view.frame.width/2-view.frame.height/6, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.height/3, heightConstant: view.frame.height/3)
+        
+        let data = myCache.currentCache.userID.data(using: .ascii, allowLossyConversion: false)
+        let filter = CIFilter(name: "CIQRCodeGenerator")
+        filter?.setValue(data, forKey: "inputMessage")
+        
+        let image = filter?.outputImage!
+        let transform = CGAffineTransform(scaleX: 10, y: 10)
+        let transformImage = image?.applying(transform)
+        
+        let tImage = UIImage(ciImage: transformImage!)
+        QRCode.image = tImage
     }
     
     var userProfileButton = UIButton()
     
     func setupNavigationBarItems(){
         var calendarLabel = UILabel()
-        calendarLabel.text = "Profile"
+        calendarLabel.text = "My QR Code"
         calendarLabel.textColor = .white//ThemeColor.whitish
         calendarLabel.font = UIFont.boldSystemFont(ofSize: 25)
         navigationItem.titleView = calendarLabel
@@ -47,3 +68,5 @@ class UserViewController: DatasourceController {
     }
     
 }
+
+

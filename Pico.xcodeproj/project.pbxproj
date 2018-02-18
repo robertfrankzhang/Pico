@@ -23,6 +23,7 @@
 		E19D0A972039CA71003B1D5F /* Objects.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A962039CA71003B1D5F /* Objects.swift */; };
 		E19D0A992039D7B3003B1D5F /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A982039D7B3003B1D5F /* DB.swift */; };
 		E19D0A9C2039E284003B1D5F /* Jura in Resources */ = {isa = PBXBuildFile; fileRef = E19D0A9B2039E284003B1D5F /* Jura */; };
+		E19D0A9E2039E478003B1D5F /* QRController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A9D2039E478003B1D5F /* QRController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		E19D0A962039CA71003B1D5F /* Objects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Objects.swift; sourceTree = "<group>"; };
 		E19D0A982039D7B3003B1D5F /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		E19D0A9B2039E284003B1D5F /* Jura */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Jura; sourceTree = "<group>"; };
+		E19D0A9D2039E478003B1D5F /* QRController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRController.swift; sourceTree = "<group>"; };
 		F0841A1B1269F4EB51FC301C /* Pods_Pico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 				E19D0A8C2039C39C003B1D5F /* ProfileController.swift */,
 				E19D0A8E2039C3A6003B1D5F /* FriendsController.swift */,
 				E19D0A902039C3BC003B1D5F /* UserViewController.swift */,
+				E19D0A9D2039E478003B1D5F /* QRController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E19D0A9E2039E478003B1D5F /* QRController.swift in Sources */,
 				E19D0A702039BF0A003B1D5F /* ViewController.swift in Sources */,
 				E19D0A992039D7B3003B1D5F /* DB.swift in Sources */,
 				E19D0A912039C3BC003B1D5F /* UserViewController.swift in Sources */,

@@ -94,6 +94,7 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
     
     var userProfileButton = UIButton()
     var friendsListButton = UIButton()
+    var qrButton = UIButton()
     
     func setupNavigationBarItems(){
         var calendarLabel = UILabel()
@@ -102,11 +103,27 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
         calendarLabel.font = UIFont.boldSystemFont(ofSize: 25)
         navigationItem.titleView = calendarLabel
         
+        var fixedSpace:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
+        fixedSpace.width = 20.0
+        
+        var fixedSpace2:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
+        fixedSpace2.width = 30.0
+        
         let signOutButton = UIButton(type: .system)
         signOutButton.setImage(#imageLiteral(resourceName: "signOut").withRenderingMode(.alwaysOriginal), for: .normal)
         signOutButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         signOutButton.addTarget(self, action: #selector(signOut), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView:signOutButton)
+        
+        qrButton = UIButton(type: .system)
+        qrButton.setImage(#imageLiteral(resourceName: "qr").withRenderingMode(.alwaysOriginal), for: .normal)
+        qrButton.imageView?.contentMode = .scaleAspectFill
+        qrButton.translatesAutoresizingMaskIntoConstraints = false
+        qrButton.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
+        qrButton.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
+        qrButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        qrButton.addTarget(self, action: #selector(viewQR), for: .touchUpInside)
+        navigationItem.leftBarButtonItems = [UIBarButtonItem(customView:signOutButton),fixedSpace2,UIBarButtonItem(customView:qrButton)]
+        
         
         userProfileButton = UIButton(type: .system)
         userProfileButton.setImage(myCache.currentCache.profilePic.withRenderingMode(.alwaysOriginal), for: .normal)
@@ -119,8 +136,7 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
         userProfileButton.layer.masksToBounds = true
         userProfileButton.addTarget(self, action: #selector(viewProfile), for: .touchUpInside)
         
-        var fixedSpace:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
-        fixedSpace.width = 15.0
+        
         
         friendsListButton = UIButton(type: .system)
         friendsListButton.setImage(#imageLiteral(resourceName: "friendsList").withRenderingMode(.alwaysOriginal), for: .normal)
@@ -131,7 +147,7 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
         friendsListButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
 
         friendsListButton.addTarget(self, action: #selector(viewFriends), for: .touchUpInside)
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView:friendsListButton),fixedSpace,UIBarButtonItem(customView:userProfileButton)]
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView:userProfileButton),fixedSpace,UIBarButtonItem(customView:friendsListButton)]
         
         navigationController?.navigationBar.barTintColor = .red//ThemeColor.red
         let bounds = self.navigationController!.navigationBar.bounds
@@ -139,8 +155,14 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
         navigationController?.navigationBar.isTranslucent = false
     }
     
+    func viewQR(){
+        let qrController = QRController()
+        present(UINavigationController(rootViewController: qrController),animated:true,completion: nil)
+    }
+    
     func viewFriends(){
-        
+        let friendsController = FriendsController()
+        present(UINavigationController(rootViewController: friendsController),animated:true,completion: nil)
     }
     
     func viewProfile(){
@@ -152,6 +174,21 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
         if (Auth.auth().currentUser == nil){
             print("no user")
             perform(#selector(signOut), with: nil, afterDelay: 0)
+        }else{
+            var currentUser:Cache? = Cache()
+            DB.getUser(userID: DB.getCurrentUserID()!, completionHandler: { (user:Cache?) in
+                //code called after data loaded
+                print("cache received")
+                currentUser = user
+                if let currentUserExists = currentUser{
+                    myCache.currentCache = currentUserExists
+                    self.userProfileButton.setImage(myCache.currentCache.profilePic.withRenderingMode(.alwaysOriginal), for: .normal)
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView:self.userProfileButton)
+                }else{
+                    //Some Network Error
+                }
+                //
+            })
         }
     }
     
