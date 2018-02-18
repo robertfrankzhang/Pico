@@ -9,14 +9,15 @@
 import Foundation
 import UIKit
 import LBTAComponents
+import Firebase
 
-class LoginController: DatasourceController {
+class LoginController: DatasourceController, UITextFieldDelegate {
     
     static var own:LoginController = LoginController()
     
     let inputContainerView:UIView = {
         let view = UIView()
-        view.backgroundColor = ThemeColor.whitish
+        view.backgroundColor = .white//ThemeColor.whitish
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -53,7 +54,7 @@ class LoginController: DatasourceController {
     
     let nameSeparatorView:UIView = {
         let view = UIView()
-        view.backgroundColor = ThemeColor.lightGray
+        view.backgroundColor = .gray//ThemeColor.lightGray
         return view
     }()
     
@@ -86,7 +87,7 @@ class LoginController: DatasourceController {
     
     let emailSeparatorView:UIView = {
         let view = UIView()
-        view.backgroundColor = ThemeColor.lightGray
+        view.backgroundColor = .gray//ThemeColor.lightGray
         return view
     }()
     
@@ -107,7 +108,7 @@ class LoginController: DatasourceController {
     
     lazy var loginRegisterSegmentedControl:UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login","Register"])
-        sc.tintColor = ThemeColor.whitish
+        sc.tintColor = .white//ThemeColor.whitish
         sc.selectedSegmentIndex = 1
         sc.addTarget(self, action: #selector(handleRegisterLoginChange), for: .valueChanged)
         return sc
@@ -122,11 +123,52 @@ class LoginController: DatasourceController {
     }
     
     func handleLogin(){
-        DatabaseFactory.DB.logIn(email: emailTextField.text, password: passwordTextField.text)
+        guard let email2 = emailTextField.text, let password2 = passwordTextField.text else{
+            return
+        }
+        
+        Auth.auth().signIn(withEmail: email2, password: password2, completion: {
+            (user,error) in
+            if error != nil{
+                print(error)
+                return
+            }
+            
+            LoginController.own.dismiss(animated: true, completion: nil)
+        })
     }
     
     func handleSignIn(){
-        DatabaseFactory.DB.createUser(name:nameTextField.text, email: emailTextField.text, password: passwordTextField.text)
+        guard let email2 = emailTextField.text, let password2 = passwordTextField.text, let name2 = nameTextField.text else{
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: email2, password: password2, completion: {(user:User?, error) in
+            if error != nil{
+                print(error)
+                return
+            }
+            
+            guard let uid = user?.uid else{
+                return
+            }
+            
+            //successfully authenticated user
+            let ref = Database.database().reference(fromURL: "https://pico-be4e4.firebaseio.com/")
+            let usersReference = ref.child("users").child(uid) //opens new directory under unique User ID
+            
+            let values = ["name":name2,"email":email2]
+            usersReference.updateChildValues(values, withCompletionBlock: { (err,ref) in
+                if err != nil{
+                    print(err)
+                    return
+                }
+                
+                print("Saved user successfully into Firebase DB")
+                LoginController.own.dismiss(animated: true, completion: nil)
+                return
+            })
+        })
     }
     
     func handleRegisterLoginChange(){
@@ -146,9 +188,9 @@ class LoginController: DatasourceController {
     
     override func viewDidLoad() {
         LoginController.own = self
-        view.backgroundColor = ThemeColor.red
+        view.backgroundColor = .red//ThemeColor.red
         
-        let logo = UIImageView(image: #imageLiteral(resourceName: "BoostboxWhite"))
+        let logo = UIImageView(image: #imageLiteral(resourceName: "icon"))
         view.addSubview(logo)
         logo.contentMode = .scaleAspectFill
         logo.anchor(self.view.topAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: view.frame.height/8, leftConstant: view.frame.width/3, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width/3, heightConstant: view.frame.width/3)

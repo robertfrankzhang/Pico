@@ -7,3 +7,25 @@
 //
 
 import Foundation
+import LBTAComponents
+import UIKit
+
+class ProfileController: DatasourceController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        collectionView?.backgroundColor = .white//ThemeColor.whitish
+        collectionView?.showsVerticalScrollIndicator = false
+        setupNavigationBarItems()
+        collectionView?.allowsMultipleSelection = true
+    }
+    
+    var userProfileButton = UIButton()
+    
+    func setupNavigationBarItems(){
+    }
+    
+   
+}
+
+
