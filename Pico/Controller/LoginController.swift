@@ -26,7 +26,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
     //Dark blue, Navy, gray, dark gray, orange, red, salmon, green, light green main, dark green, blue green, lime green, olive green
     lazy var loginRegisterButton: UIButton = {          //Login Button
         let button = UIButton(type: .system)
-        button.backgroundColor = ThemeColors.DARK_BLUE
+        button.backgroundColor = ThemeColors.CALM_BLUE
         button.setTitle("Register", for: .normal)
         button.layer.cornerRadius = 5
         button.layer.masksToBounds = true
