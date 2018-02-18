@@ -26,6 +26,7 @@
 		E19D0A9E2039E478003B1D5F /* QRController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A9D2039E478003B1D5F /* QRController.swift */; };
 		E19D0AA02039FCC2003B1D5F /* ProfileCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A9F2039FCC2003B1D5F /* ProfileCells.swift */; };
 		E19D0AA2203A014A003B1D5F /* ProfileDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0AA1203A014A003B1D5F /* ProfileDatasource.swift */; };
+		E19D0AA4203A08B5003B1D5F /* NewAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0AA3203A08B5003B1D5F /* NewAccountController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		E19D0A9D2039E478003B1D5F /* QRController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRController.swift; sourceTree = "<group>"; };
 		E19D0A9F2039FCC2003B1D5F /* ProfileCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCells.swift; sourceTree = "<group>"; };
 		E19D0AA1203A014A003B1D5F /* ProfileDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDatasource.swift; sourceTree = "<group>"; };
+		E19D0AA3203A08B5003B1D5F /* NewAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountController.swift; sourceTree = "<group>"; };
 		F0841A1B1269F4EB51FC301C /* Pods_Pico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 				E19D0A882039C36E003B1D5F /* LoginController.swift */,
 				E19D0A8A2039C391003B1D5F /* HomeController.swift */,
 				E19D0A8C2039C39C003B1D5F /* ProfileController.swift */,
+				E19D0AA3203A08B5003B1D5F /* NewAccountController.swift */,
 				E19D0A8E2039C3A6003B1D5F /* FriendsController.swift */,
 				E19D0A902039C3BC003B1D5F /* UserViewController.swift */,
 				E19D0A9D2039E478003B1D5F /* QRController.swift */,
@@ -303,6 +306,7 @@
 				E19D0A912039C3BC003B1D5F /* UserViewController.swift in Sources */,
 				E19D0A892039C36E003B1D5F /* LoginController.swift in Sources */,
 				E19D0A762039BF0A003B1D5F /* Pico.xcdatamodeld in Sources */,
+				E19D0AA4203A08B5003B1D5F /* NewAccountController.swift in Sources */,
 				E19D0A6E2039BF0A003B1D5F /* AppDelegate.swift in Sources */,
 				E19D0A8B2039C391003B1D5F /* HomeController.swift in Sources */,
 				E19D0AA02039FCC2003B1D5F /* ProfileCells.swift in Sources */,

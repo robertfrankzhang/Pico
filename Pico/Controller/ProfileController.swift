@@ -12,6 +12,8 @@ import UIKit
 
 class ProfileController: DatasourceController {
     
+    static var own = ProfileController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = ThemeColors.CALM_BLUE
@@ -19,6 +21,7 @@ class ProfileController: DatasourceController {
         setupNavigationBarItems()
         collectionView?.allowsMultipleSelection = true
         self.datasource = ProfileDatasource()
+        ProfileController.own = self
         
     }
     
