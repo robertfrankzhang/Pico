@@ -10,7 +10,7 @@ import Foundation
 import LBTAComponents
 import UIKit
 
-class ProfileController: DatasourceController {
+class ProfileController: DatasourceController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
     static var own = ProfileController()
     
@@ -52,6 +52,59 @@ class ProfileController: DatasourceController {
     func goBack(){
         self.dismiss(animated: true, completion: nil)
     }
+    
+   
+    static func takePhoto(){
+        print("photo")
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = own
+        
+        let actionSheet = UIAlertController(title: "Update Your Profile Picture", message: "Choose a source", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action:UIAlertAction) in
+            if UIImagePickerController.isSourceTypeAvailable(.camera){
+                imagePickerController.sourceType = .camera
+                imagePickerController.allowsEditing = false
+                own.present(imagePickerController, animated: true, completion: nil)
+            }else{
+                //Camera Not Available
+            }
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action:UIAlertAction) in
+            imagePickerController.sourceType = .photoLibrary
+            imagePickerController.allowsEditing = true
+            own.present(imagePickerController, animated: true, completion: nil)
+        }))
+        
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(action:UIAlertAction) in
+            
+        }))
+        
+        own.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage{
+            DB.updateProfilePicture(image: editedImage)
+            myCache.currentCache.profilePic = editedImage
+            collectionView?.reloadData()
+            return
+        }
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            DB.updateProfilePicture(image: image)
+            myCache.currentCache.profilePic = image
+            collectionView?.reloadData()
+            return
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
     
     override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0{

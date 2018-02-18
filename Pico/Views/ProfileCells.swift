@@ -21,8 +21,10 @@ class ProfileView:DatasourceCell{
         return view
     }()
     
-    var edit:UIImageView = {
+    var editIm:UIImageView = {
         let view = UIImageView()
+        view.frame.size = CGSize(width:30,height:30)
+        view.isUserInteractionEnabled = true
         view.image = #imageLiteral(resourceName: "edit")
         return view
     }()
@@ -46,17 +48,15 @@ class ProfileView:DatasourceCell{
     override func setupViews() {
         super.setupViews()
         backgroundColor = .white
-        
+        frame.size = CGSize(width:UIScreen.main.bounds.width,height:UIScreen.main.bounds.height/1.5)
         addSubview(profileImage)
         profileImage.anchor(topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: self.frame.height/20, leftConstant: self.frame.width/2-self.frame.width/5, bottomConstant: 0, rightConstant: 0, widthConstant: self.frame.width/2.5, heightConstant: self.frame.width/2.5)
         
-        addSubview(edit)
-        edit.anchor(nil, left: profileImage.rightAnchor, bottom: profileImage.bottomAnchor, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 30, heightConstant: 30)
+        addSubview(editIm)
+        editIm.anchor(nil, left: profileImage.rightAnchor, bottom: profileImage.bottomAnchor, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 30, heightConstant: 30)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.editImg(tap:)))
-        print(tapGesture.location(in: edit))
-        edit.addGestureRecognizer(tapGesture)
-        print("---------------------------------------------- \(edit.bounds)")
+        editIm.addGestureRecognizer(tapGesture)
         
         addSubview(name)
         name.anchor(profileImage.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: self.frame.width/2-name.intrinsicContentSize.width/2, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
@@ -66,12 +66,8 @@ class ProfileView:DatasourceCell{
         
     }
     
-    @IBAction func tapDetected(_ sender: UITapGestureRecognizer) {
-        print("TAP TAP")
-    }
-    
     func editImg(tap:UITapGestureRecognizer){
-        print("edit-------------------------------------------")
+        ProfileController.takePhoto()
     }
 }
     
@@ -109,7 +105,6 @@ class AddAccountHeader:DatasourceCell{
     }
     
     func add(tap:UITapGestureRecognizer){
-
         ProfileController.own.present(UINavigationController(rootViewController:NewAccountController()), animated: true, completion: nil)
     }
 
@@ -122,14 +117,16 @@ class AccountCell:DatasourceCell{
             if account.accountKey.lowercased() == "facebook"{
                 accountIcon.image = #imageLiteral(resourceName: "facebook")
             }
-            if account.accountKey.lowercased() == "instagram"{
+            else if account.accountKey.lowercased() == "instagram"{
                 accountIcon.image = #imageLiteral(resourceName: "instagram")
             }
-            if account.accountKey.lowercased() == "snapchat"{
+            else if account.accountKey.lowercased() == "snapchat"{
                 accountIcon.image = #imageLiteral(resourceName: "snapchat")
             }
-            if account.accountKey.lowercased() == "twitter"{
+            else if account.accountKey.lowercased() == "twitter"{
                 accountIcon.image = #imageLiteral(resourceName: "twitter")
+            }else{
+                accountIcon.image = #imageLiteral(resourceName: "defaultIcon")
             }
         }
     }

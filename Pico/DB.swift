@@ -109,6 +109,25 @@ class DB{
         })
     }
     
+    static func updateProfilePicture(image:UIImage){
+        let storageRef = Storage.storage().reference().child("myProfile\(myCache.currentCache.userID)")
+        if let uploadData = UIImageJPEGRepresentation(image, 1){
+            storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                if error != nil{
+                    print(error)
+                    return
+                }
+                print(metadata)
+                let ref = Database.database().reference(fromURL: "https://pico-be4e4.firebaseio.com/")
+                let userRef = ref.child("users").child(myCache.currentCache.userID).child("profileURL")
+                userRef.setValue(metadata?.downloadURL()?.absoluteString)
+                print("stored")
+                
+            })
+        }
+        
+    }
+    
     static func getCurrentUserID()->String?{
         return Auth.auth().currentUser?.uid
     }
