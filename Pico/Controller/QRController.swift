@@ -21,7 +21,7 @@ class QRController: DatasourceController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.backgroundColor = .white//ThemeColor.whitish
+        collectionView?.backgroundColor = .white
         collectionView?.showsVerticalScrollIndicator = false
         setupNavigationBarItems()
         collectionView?.allowsMultipleSelection = true
@@ -47,7 +47,7 @@ class QRController: DatasourceController {
     func setupNavigationBarItems(){
         var calendarLabel = UILabel()
         calendarLabel.text = "My QR Code"
-        calendarLabel.textColor = .white//ThemeColor.whitish
+        calendarLabel.textColor = .white
         calendarLabel.font = UIFont.boldSystemFont(ofSize: 25)
         navigationItem.titleView = calendarLabel
         
@@ -57,7 +57,7 @@ class QRController: DatasourceController {
         backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView:backButton)
         
-        navigationController?.navigationBar.barTintColor = .red//ThemeColor.red
+        navigationController?.navigationBar.barTintColor = ThemeColors.LIGHT_GREEN_MAIN
         let bounds = self.navigationController!.navigationBar.bounds
         navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height*1.5)
         navigationController?.navigationBar.isTranslucent = false

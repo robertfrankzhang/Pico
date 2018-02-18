@@ -16,7 +16,7 @@ class ProfileController: DatasourceController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.backgroundColor = ThemeColors.CALM_BLUE
+        collectionView?.backgroundColor = ThemeColors.GRAY
         collectionView?.showsVerticalScrollIndicator = false
         setupNavigationBarItems()
         collectionView?.allowsMultipleSelection = true
@@ -34,7 +34,7 @@ class ProfileController: DatasourceController {
     func setupNavigationBarItems(){
         var calendarLabel = UILabel()
         calendarLabel.text = "My Profile"
-        calendarLabel.textColor = .white//ThemeColor.whitish
+        calendarLabel.textColor = .white
         calendarLabel.font = UIFont.boldSystemFont(ofSize: 25)
         navigationItem.titleView = calendarLabel
         
@@ -44,7 +44,7 @@ class ProfileController: DatasourceController {
         backButton.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView:backButton)
     
-        navigationController?.navigationBar.barTintColor = .red//ThemeColor.red
+        navigationController?.navigationBar.barTintColor = ThemeColors.LIGHT_GREEN_MAIN
         let bounds = self.navigationController!.navigationBar.bounds
         navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height*1.5)
         navigationController?.navigationBar.isTranslucent = false

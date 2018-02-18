@@ -229,6 +229,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
         inputContainerViewHeightAnchor = inputContainerView.heightAnchor.constraint(equalToConstant: 150)
         inputContainerViewHeightAnchor?.isActive = true
         
+        
         view.addSubview(inputContainerViewMiddle)
         inputContainerView.anchor(loginRegisterSegmentedControl.bottomAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width-24, heightConstant: 50)
         inputContainerViewHeightAnchor = inputContainerView.heightAnchor.constraint(equalToConstant: 150)
