@@ -223,7 +223,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
         LoginController.own = self
         collectionView?.backgroundColor = ThemeColors.LIGHT_GREEN_MAIN
         
-        let logo = UIImageView(image: #imageLiteral(resourceName: "pico1"))
+        let logo = UIImageView(image: #imageLiteral(resourceName: "Pico4"))
         view.addSubview(logo)
         logo.contentMode = .scaleAspectFill
         logo.anchor(self.view.topAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: view.frame.height/8, leftConstant: view.frame.width/3, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width/3, heightConstant: view.frame.width/3)
