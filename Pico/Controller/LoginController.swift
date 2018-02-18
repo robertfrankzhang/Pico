@@ -26,7 +26,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
     
     let inputContainerViewTop:UIView = {
         let view = UIView()
-        view.backgroundColor = ThemeColors.GRAY
+        view.backgroundColor = ThemeColors.loginTextBackground
         view.layer.cornerRadius = 8
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -35,7 +35,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
     
     let inputContainerViewMiddle:UIView = {
         let view = UIView()
-        view.backgroundColor = ThemeColors.GRAY
+        view.backgroundColor = ThemeColors.loginTextBackground
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -43,7 +43,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
     
     let inputContainerViewBottom:UIView = {
         let view = UIView()
-        view.backgroundColor = ThemeColors.GRAY
+        view.backgroundColor = ThemeColors.loginTextBackground
         view.layer.cornerRadius = 8
         view.layer.masksToBounds = true
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +79,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
     
     let nameSeparatorView:UIView = {
         let view = UIView()
-        view.backgroundColor = .gray//ThemeColor.lightGray
+        view.backgroundColor = .gray
         return view
     }()
     
@@ -112,7 +112,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
     
     let emailSeparatorView:UIView = {
         let view = UIView()
-        view.backgroundColor = .gray//ThemeColor.lightGray
+        view.backgroundColor = .gray
         return view
     }()
     
@@ -133,7 +133,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
     
     lazy var loginRegisterSegmentedControl:UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Login","Register"])
-        sc.tintColor = .white//ThemeColor.whitish
+        sc.tintColor = ThemeColors.CALM_BLUE
         sc.selectedSegmentIndex = 1
         sc.addTarget(self, action: #selector(handleRegisterLoginChange), for: .valueChanged)
         return sc
@@ -215,7 +215,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
         LoginController.own = self
         collectionView?.backgroundColor = ThemeColors.LIGHT_GREEN_MAIN
         
-        let logo = UIImageView(image: #imageLiteral(resourceName: "icon"))              //Change to Pico picture
+        let logo = UIImageView(image: #imageLiteral(resourceName: "pico1"))
         view.addSubview(logo)
         logo.contentMode = .scaleAspectFill
         logo.anchor(self.view.topAnchor, left: self.view.leftAnchor, bottom: nil, right: nil, topConstant: view.frame.height/8, leftConstant: view.frame.width/3, bottomConstant: 0, rightConstant: 0, widthConstant: view.frame.width/3, heightConstant: view.frame.width/3)
@@ -290,7 +290,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
                 }
             }else if text == ""{
                 nameTextField.resignFirstResponder()
-                inputContainerViewTop.backgroundColor = ThemeColors.GRAY
+                inputContainerViewTop.backgroundColor = ThemeColors.loginTextBackground
             }
             if text != "" {
                 inputContainerViewTop.backgroundColor = .white
@@ -304,8 +304,8 @@ class LoginController: DatasourceController, UITextFieldDelegate {
                 }
             }else if text == ""{
                 emailTextField.resignFirstResponder()
-                emailTextField.backgroundColor = ThemeColors.GRAY
-                //inputContainerView.backgroundColor = ThemeColors.GRAY
+                emailTextField.backgroundColor = ThemeColors.loginTextBackground
+
             }
             if text != "" {
                 inputContainerViewMiddle.backgroundColor = .white
@@ -319,7 +319,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
                 }
             }else if text == ""{
                 passwordTextField.resignFirstResponder()
-                inputContainerViewBottom.backgroundColor = ThemeColors.GRAY
+                inputContainerViewBottom.backgroundColor = ThemeColors.loginTextBackground
             }
             if text != "" {
                 inputContainerViewBottom.backgroundColor = .white
