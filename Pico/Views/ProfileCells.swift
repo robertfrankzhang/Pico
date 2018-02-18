@@ -21,6 +21,12 @@ class ProfileView:DatasourceCell{
         return view
     }()
     
+    var edit:UIImageView = {
+        let view = UIImageView()
+        view.image = #imageLiteral(resourceName: "edit")
+        return view
+    }()
+    
     lazy var name:UILabel = {
         let label = UILabel()
         label.text = myCache.currentCache.firstName
@@ -44,12 +50,21 @@ class ProfileView:DatasourceCell{
         addSubview(profileImage)
         profileImage.anchor(topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: self.frame.height/20, leftConstant: self.frame.width/2-self.frame.width/5, bottomConstant: 0, rightConstant: 0, widthConstant: self.frame.width/2.5, heightConstant: self.frame.width/2.5)
         
+        addSubview(edit)
+        edit.anchor(nil, left: profileImage.rightAnchor, bottom: profileImage.bottomAnchor, right: nil, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 30, heightConstant: 30)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.editImg(tap:)))
+        edit.addGestureRecognizer(tapGesture)
+        
         addSubview(name)
         name.anchor(profileImage.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: self.frame.width/2-name.intrinsicContentSize.width/2, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
         addSubview(descriptionLabel)
         descriptionLabel.anchor(name.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 24, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
+    }
+    
+    func editImg(tap:UITapGestureRecognizer){
+        print("edit")
     }
 }
 
