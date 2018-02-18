@@ -25,6 +25,10 @@ class ProfileController: DatasourceController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        collectionView?.reloadData()
+    }
+    
     var userProfileButton = UIButton()
 
     func setupNavigationBarItems(){

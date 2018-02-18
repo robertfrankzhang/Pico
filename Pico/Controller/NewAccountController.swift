@@ -20,6 +20,7 @@ class NewAccountController: DatasourceController, UITextFieldDelegate {
         tf.autocapitalizationType = .words
         tf.returnKeyType = .done
         tf.delegate = self
+        tf.backgroundColor = .white
         tf.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 11, *) {
             // Disables the password autoFill accessory view.
@@ -35,6 +36,7 @@ class NewAccountController: DatasourceController, UITextFieldDelegate {
         tf.autocapitalizationType = .words
         tf.returnKeyType = .done
         tf.delegate = self
+        tf.backgroundColor = .white
         tf.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 11, *) {
             // Disables the password autoFill accessory view.
@@ -51,10 +53,11 @@ class NewAccountController: DatasourceController, UITextFieldDelegate {
     }()
     
     func buttonPressed(){
+        print("hi")
         if !(platformTextField.text?.isEmpty)! && !(usernameTextField.text?.isEmpty)!{
             var account = Account(accountKey: platformTextField.text!, username: usernameTextField.text!, toggled: true)
             myCache.currentCache.accounts.append(account)
-            
+            DB.addAccount(account: account)
         }
     }
     
