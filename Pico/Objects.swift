@@ -59,6 +59,10 @@ class ScannedUser{
         self.userID = userID
         self.accountKeys = accountKeys
     }
+    
+    init(){
+        
+    }
 }
 
 

@@ -13,6 +13,8 @@ import UIKit
 
 class FriendsController: DatasourceController {
     
+    static var own = FriendsController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = ThemeColors.GRAY
@@ -20,6 +22,7 @@ class FriendsController: DatasourceController {
         setupNavigationBarItems()
         collectionView?.allowsMultipleSelection = true
         self.datasource = FriendsDatasource()
+        FriendsController.own = self
     }
     
     var userProfileButton = UIButton()

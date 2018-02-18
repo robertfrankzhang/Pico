@@ -12,6 +12,8 @@ import UIKit
 
 class FriendCell:DatasourceCell{
     
+    var user:Cache = Cache()
+    
     let name:UILabel = {
         let label = UILabel()
         label.textColor = .black
@@ -37,6 +39,7 @@ class FriendCell:DatasourceCell{
                 if let currentUserExists = currentUser{
                     self.profile.image = currentUserExists.profilePic
                     self.name.text = currentUserExists.firstName
+                    self.user = currentUserExists
                 }else{
                     print("networkerror")
                     //Some Network Error
@@ -60,6 +63,6 @@ class FriendCell:DatasourceCell{
     }
     
     func add(tap:UITapGestureRecognizer){
-        print("see friend")
+        FriendsController.own.present(UINavigationController(rootViewController:UserViewController(user:user)), animated: true, completion: nil)
     }
 }

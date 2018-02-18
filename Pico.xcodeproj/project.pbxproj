@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7C7BBA7CD049C3953B3A0271 /* Pods_Pico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0841A1B1269F4EB51FC301C /* Pods_Pico.framework */; };
-		84E180D8203A21A400AED724 /* Iconic2.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E180D7203A21A400AED724 /* Iconic2.png */; };
 		E19D0A6E2039BF0A003B1D5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A6D2039BF0A003B1D5F /* AppDelegate.swift */; };
 		E19D0A702039BF0A003B1D5F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A6F2039BF0A003B1D5F /* ViewController.swift */; };
 		E19D0A762039BF0A003B1D5F /* Pico.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A742039BF0A003B1D5F /* Pico.xcdatamodeld */; };
@@ -30,12 +29,13 @@
 		E19D0AA4203A08B5003B1D5F /* NewAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0AA3203A08B5003B1D5F /* NewAccountController.swift */; };
 		E19D0AA6203A19F4003B1D5F /* FriendsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0AA5203A19F4003B1D5F /* FriendsDatasource.swift */; };
 		E19D0AA8203A1A1B003B1D5F /* FriendsCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0AA7203A1A1B003B1D5F /* FriendsCells.swift */; };
+		E19D0AAA203A278B003B1D5F /* FriendCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0AA9203A278B003B1D5F /* FriendCells.swift */; };
+		E19D0AAC203A27F5003B1D5F /* FriendDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0AAB203A27F5003B1D5F /* FriendDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0CBC8BBE337F210091FCB218 /* Pods-Pico.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pico.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Pico/Pods-Pico.debug.xcconfig"; sourceTree = "<group>"; };
 		84026098E2AA0764E84910CC /* Pods-Pico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pico.release.xcconfig"; path = "Pods/Target Support Files/Pods-Pico/Pods-Pico.release.xcconfig"; sourceTree = "<group>"; };
-		84E180D7203A21A400AED724 /* Iconic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Iconic2.png; path = ../../../Downloads/Iconic2.png; sourceTree = "<group>"; };
 		E19D0A6A2039BF0A003B1D5F /* Pico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19D0A6D2039BF0A003B1D5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E19D0A6F2039BF0A003B1D5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +59,8 @@
 		E19D0AA3203A08B5003B1D5F /* NewAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountController.swift; sourceTree = "<group>"; };
 		E19D0AA5203A19F4003B1D5F /* FriendsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsDatasource.swift; sourceTree = "<group>"; };
 		E19D0AA7203A1A1B003B1D5F /* FriendsCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCells.swift; sourceTree = "<group>"; };
+		E19D0AA9203A278B003B1D5F /* FriendCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCells.swift; sourceTree = "<group>"; };
+		E19D0AAB203A27F5003B1D5F /* FriendDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDatasource.swift; sourceTree = "<group>"; };
 		F0841A1B1269F4EB51FC301C /* Pods_Pico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -113,7 +115,6 @@
 				E19D0A6D2039BF0A003B1D5F /* AppDelegate.swift */,
 				E19D0A6F2039BF0A003B1D5F /* ViewController.swift */,
 				E19D0A772039BF0A003B1D5F /* Assets.xcassets */,
-				84E180D7203A21A400AED724 /* Iconic2.png */,
 				E19D0A792039BF0A003B1D5F /* LaunchScreen.storyboard */,
 				E19D0A922039C713003B1D5F /* GoogleService-Info.plist */,
 				E19D0A7C2039BF0A003B1D5F /* Info.plist */,
@@ -128,6 +129,7 @@
 			children = (
 				E19D0AA1203A014A003B1D5F /* ProfileDatasource.swift */,
 				E19D0AA5203A19F4003B1D5F /* FriendsDatasource.swift */,
+				E19D0AAB203A27F5003B1D5F /* FriendDatasource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,6 +139,7 @@
 			children = (
 				E19D0A9F2039FCC2003B1D5F /* ProfileCells.swift */,
 				E19D0AA7203A1A1B003B1D5F /* FriendsCells.swift */,
+				E19D0AA9203A278B003B1D5F /* FriendCells.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -234,7 +237,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E19D0A7B2039BF0A003B1D5F /* LaunchScreen.storyboard in Resources */,
-				84E180D8203A21A400AED724 /* Iconic2.png in Resources */,
 				E19D0A782039BF0A003B1D5F /* Assets.xcassets in Resources */,
 				E19D0A9C2039E284003B1D5F /* Jura in Resources */,
 				E19D0A932039C713003B1D5F /* GoogleService-Info.plist in Resources */,
@@ -313,6 +315,8 @@
 				E19D0A9E2039E478003B1D5F /* QRController.swift in Sources */,
 				E19D0A702039BF0A003B1D5F /* ViewController.swift in Sources */,
 				E19D0A992039D7B3003B1D5F /* DB.swift in Sources */,
+				E19D0AAC203A27F5003B1D5F /* FriendDatasource.swift in Sources */,
+				E19D0AAA203A278B003B1D5F /* FriendCells.swift in Sources */,
 				E19D0A912039C3BC003B1D5F /* UserViewController.swift in Sources */,
 				E19D0A892039C36E003B1D5F /* LoginController.swift in Sources */,
 				E19D0A762039BF0A003B1D5F /* Pico.xcdatamodeld in Sources */,
