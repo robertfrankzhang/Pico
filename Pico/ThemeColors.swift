@@ -12,11 +12,13 @@ import UIKit
 class ThemeColors{
     //Blues
     static var DARK_BLUE = UIColor(red: 0, green: 82/255, blue: 98/255, alpha: 1.0)
+    static var CALM_BLUE = UIColor(red: 0, green: 82/255, blue: 98/255, alpha: 1.0)
     static var NAVY = UIColor(red: 0, green: 0, blue: 128/255, alpha: 1.0)
     
     //Black/White
     static var GRAY = UIColor(red: 211/255, green: 212/255, blue: 209/255, alpha: 1.0)
-    static var DARK_GRAY = UIColor(red: 86/255, green: 86/255, blue: 86/255, alpha: 1.0)
+    static var DARK_GRAY = UIColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1.0)
+    static var DARK_DARK_GRAY = UIColor(red: 86/255, green: 86/255, blue: 86/255, alpha: 1.0)
     
     //Brights
     static var ORANGE = UIColor(red: 1, green: 178/255, blue: 102/255, alpha: 1.0)
