@@ -38,7 +38,7 @@ class DB{
                         for accounts in userReal.keys{
                             accountKeys.append(accounts)
                         }
-                        var newScanned = ScannedUser(userID: userReal as! String, accountKeys: accountKeys)
+                        var newScanned = ScannedUser(userID: user as! String, accountKeys: accountKeys)
                         scannedArray.append(newScanned)
                     }
                 }
@@ -85,7 +85,28 @@ class DB{
     }
     
     static func addUser(user:Cache){
+        let ref = Database.database().reference(fromURL: "https://pico-be4e4.firebaseio.com/")
+        let usersReference = ref.child("users").child(myCache.currentCache.userID).child("scannedIDs")
         
+        var scanned:[String:[String:String]] = [:]
+        
+        for friend in myCache.currentCache.scanned{
+            var scanned2:[String:String] =  [:]
+            for account in friend.accountKeys{
+                scanned2[account] = "placeholder"
+            }
+            scanned[friend.userID] = scanned2
+        }
+        
+        usersReference.updateChildValues(scanned, withCompletionBlock: { (err,ref) in
+            if err != nil{
+                print(err)
+                return
+            }
+            
+            print("Saved user successfully into Firebase DB")
+            return
+        })
     }
     
     static func getCurrentUserID()->String?{

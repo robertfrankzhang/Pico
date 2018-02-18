@@ -75,6 +75,8 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
                                         }
                                     }
                                     myCache.currentCache.scanned.append(ScannedUser(userID: currentUserExists.userID, accountKeys: validAccounts))
+                                    DB.addUser(user: currentUserExists)
+                                    
                                 }))
                                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(nil) in
                                     self.session.startRunning()
@@ -184,6 +186,7 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
                     self.userProfileButton.setImage(myCache.currentCache.profilePic.withRenderingMode(.alwaysOriginal), for: .normal)
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView:self.userProfileButton)
                     print(myCache.currentCache.userID)
+                    print(myCache.currentCache.scanned)
                 }else{
                     print("networkerror")
                     //Some Network Error
