@@ -38,7 +38,7 @@ class FriendView:DatasourceCell{
     
     override func setupViews() {
         super.setupViews()
-        backgroundColor = .white
+        backgroundColor = UIColor(red:240/255,green:240/255,blue:240/255,alpha:1)
         
         addSubview(profileImage)
         profileImage.anchor(topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: self.frame.height/20, leftConstant: self.frame.width/2-self.frame.width/5, bottomConstant: 0, rightConstant: 0, widthConstant: self.frame.width/2.5, heightConstant: self.frame.width/2.5)
@@ -48,6 +48,8 @@ class FriendView:DatasourceCell{
         
         addSubview(descriptionLabel)
         descriptionLabel.anchor(name.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 24, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        
+        
         
     }
 }

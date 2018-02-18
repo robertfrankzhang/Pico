@@ -72,9 +72,6 @@ class UserViewController: DatasourceController {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if section == 1{
-            return CGSize(width:view.frame.width,height:50)
-        }
         return CGSize.zero
     }
     

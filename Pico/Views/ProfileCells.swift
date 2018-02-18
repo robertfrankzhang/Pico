@@ -62,7 +62,7 @@ class ProfileView:DatasourceCell{
         name.anchor(profileImage.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: self.frame.width/2-name.intrinsicContentSize.width/2, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
         addSubview(descriptionLabel)
-        descriptionLabel.anchor(name.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 24, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        descriptionLabel.anchor(name.bottomAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
     }
     
@@ -133,7 +133,7 @@ class AccountCell:DatasourceCell{
     
     override func setupViews() {
         super.setupViews()
-        backgroundColor = .white
+        backgroundColor = UIColor(red:240/255,green:240/255,blue:240/255,alpha:1)
         
         addSubview(accountIcon)
         accountIcon.anchor(topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 50, heightConstant: 50)
