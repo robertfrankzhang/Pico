@@ -182,7 +182,7 @@ class LoginController: DatasourceController, UITextFieldDelegate {
             let ref = Database.database().reference(fromURL: "https://pico-be4e4.firebaseio.com/")
             let usersReference = ref.child("users").child(uid) //opens new directory under unique User ID
             
-            let values = ["name":name2,"email":email2]
+            let values = ["userID":uid,"firstName":name2,"email":email2,"profileURL":"","description":"","accounts":"placeholder","scannedIDs":"placeholder"]
             usersReference.updateChildValues(values, withCompletionBlock: { (err,ref) in
                 if err != nil{
                     print(err)

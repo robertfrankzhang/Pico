@@ -31,7 +31,7 @@ class DB{
                 }
                 
                 var scannedArray:[ScannedUser] = []
-                if let scanned = (userDictionaryRef["scannedUsers"] as? [String:AnyObject]){
+                if let scanned = (userDictionaryRef["scannedIDs"] as? [String:AnyObject]){
                     for user in scanned.keys{
                         let userReal = scanned[user] as! [String:String]
                         var accountKeys:[String] = []
@@ -42,8 +42,15 @@ class DB{
                         scannedArray.append(newScanned)
                     }
                 }
+                var image = UIImage()
+                if userDictionaryRef["profileURL"] as! String == ""{
+                    image = #imageLiteral(resourceName: "userBlank")
+                }else{
+                    //customize image from storage
+                }
                 
-                returnUser = Cache(email: userDictionaryRef["email"] as! String, firstName: userDictionaryRef["email"] as! String, lastName: "", profilePic: UIImage(), description: userDictionaryRef["description"] as! String, accounts: accountsArray, scanned: scannedArray)
+                
+                returnUser = Cache(userID:userDictionaryRef["userID"] as! String,email: userDictionaryRef["email"] as! String, firstName: userDictionaryRef["firstName"] as! String, lastName: "", profilePic: image, description: userDictionaryRef["description"] as! String, accounts: accountsArray, scanned: scannedArray)
             }
             
             if returnUser == nil{

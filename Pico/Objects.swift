@@ -19,7 +19,8 @@ class Cache{
     var accounts:[Account] = []
     var scanned:[ScannedUser] = []
     
-    init(email:String,firstName:String,lastName:String,profilePic:UIImage,description:String,accounts:[Account],scanned:[ScannedUser]) {
+    init(userID:String,email:String,firstName:String,lastName:String,profilePic:UIImage,description:String,accounts:[Account],scanned:[ScannedUser]) {
+        self.userID = userID
         self.email = email
         self.firstName = firstName
         self.lastName = lastName

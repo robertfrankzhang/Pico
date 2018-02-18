@@ -41,7 +41,7 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
         output.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
         
         video = AVCaptureVideoPreviewLayer(session: session)
-        video.frame = view.layer.bounds
+        video.frame = view.frame//view.layer.bounds
         view.layer.addSublayer(video)
         
         session.startRunning()
@@ -136,8 +136,6 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
         userProfileButton.layer.masksToBounds = true
         userProfileButton.addTarget(self, action: #selector(viewProfile), for: .touchUpInside)
         
-        
-        
         friendsListButton = UIButton(type: .system)
         friendsListButton.setImage(#imageLiteral(resourceName: "friendsList").withRenderingMode(.alwaysOriginal), for: .normal)
         friendsListButton.imageView?.contentMode = .scaleAspectFill
@@ -176,6 +174,7 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
             perform(#selector(signOut), with: nil, afterDelay: 0)
         }else{
             var currentUser:Cache? = Cache()
+            print("uid"+(DB.getCurrentUserID())!)
             DB.getUser(userID: DB.getCurrentUserID()!, completionHandler: { (user:Cache?) in
                 //code called after data loaded
                 print("cache received")
@@ -184,7 +183,9 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
                     myCache.currentCache = currentUserExists
                     self.userProfileButton.setImage(myCache.currentCache.profilePic.withRenderingMode(.alwaysOriginal), for: .normal)
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView:self.userProfileButton)
+                    print(myCache.currentCache.userID)
                 }else{
+                    print("networkerror")
                     //Some Network Error
                 }
                 //

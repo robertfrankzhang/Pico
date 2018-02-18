@@ -14,10 +14,12 @@ class ProfileController: DatasourceController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.backgroundColor = .white//ThemeColor.whitish
+        collectionView?.backgroundColor = ThemeColors.CALM_BLUE
         collectionView?.showsVerticalScrollIndicator = false
         setupNavigationBarItems()
         collectionView?.allowsMultipleSelection = true
+        self.datasource = ProfileDatasource()
+        
     }
     
     var userProfileButton = UIButton()
@@ -44,7 +46,33 @@ class ProfileController: DatasourceController {
     func goBack(){
         self.dismiss(animated: true, completion: nil)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if indexPath.section == 0{
+            return CGSize(width:self.view.frame.width,height:self.view.frame.width/1.5)
+        }
+        return CGSize(width:view.frame.width,height:80)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize.zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 1{
+            return CGSize(width:view.frame.width,height:50)
+        }
+        return CGSize.zero
+    }
    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
 }
 
 

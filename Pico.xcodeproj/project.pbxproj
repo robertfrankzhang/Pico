@@ -24,6 +24,8 @@
 		E19D0A992039D7B3003B1D5F /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A982039D7B3003B1D5F /* DB.swift */; };
 		E19D0A9C2039E284003B1D5F /* Jura in Resources */ = {isa = PBXBuildFile; fileRef = E19D0A9B2039E284003B1D5F /* Jura */; };
 		E19D0A9E2039E478003B1D5F /* QRController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A9D2039E478003B1D5F /* QRController.swift */; };
+		E19D0AA02039FCC2003B1D5F /* ProfileCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0A9F2039FCC2003B1D5F /* ProfileCells.swift */; };
+		E19D0AA2203A014A003B1D5F /* ProfileDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D0AA1203A014A003B1D5F /* ProfileDatasource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		E19D0A982039D7B3003B1D5F /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		E19D0A9B2039E284003B1D5F /* Jura */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Jura; sourceTree = "<group>"; };
 		E19D0A9D2039E478003B1D5F /* QRController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRController.swift; sourceTree = "<group>"; };
+		E19D0A9F2039FCC2003B1D5F /* ProfileCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCells.swift; sourceTree = "<group>"; };
+		E19D0AA1203A014A003B1D5F /* ProfileDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDatasource.swift; sourceTree = "<group>"; };
 		F0841A1B1269F4EB51FC301C /* Pods_Pico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -113,6 +117,7 @@
 		E19D0A852039C323003B1D5F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E19D0AA1203A014A003B1D5F /* ProfileDatasource.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 		E19D0A862039C32D003B1D5F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E19D0A9F2039FCC2003B1D5F /* ProfileCells.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,7 +305,9 @@
 				E19D0A762039BF0A003B1D5F /* Pico.xcdatamodeld in Sources */,
 				E19D0A6E2039BF0A003B1D5F /* AppDelegate.swift in Sources */,
 				E19D0A8B2039C391003B1D5F /* HomeController.swift in Sources */,
+				E19D0AA02039FCC2003B1D5F /* ProfileCells.swift in Sources */,
 				E19D0A972039CA71003B1D5F /* Objects.swift in Sources */,
+				E19D0AA2203A014A003B1D5F /* ProfileDatasource.swift in Sources */,
 				E19D0A8F2039C3A6003B1D5F /* FriendsController.swift in Sources */,
 				E19D0A8D2039C39C003B1D5F /* ProfileController.swift in Sources */,
 				E19D0A952039C94E003B1D5F /* ThemeColors.swift in Sources */,
