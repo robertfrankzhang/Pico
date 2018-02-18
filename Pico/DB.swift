@@ -61,6 +61,29 @@ class DB{
         }, withCancel: nil)
     }
     
+    static func addAccount(account:Account){
+        let ref = Database.database().reference(fromURL: "https://pico-be4e4.firebaseio.com/")
+        let usersReference = ref.child("users").child(myCache.currentCache.userID).child("accounts")
+        
+        var accounts:[String:[String:String]] = [:]
+        
+        for account in myCache.currentCache.accounts{
+            var toggle:String = account.toggled ? "true" : "false"
+            accounts[account.accountKey] = ["username":account.username,"toggled":toggle]
+        }
+        
+        usersReference.updateChildValues(accounts, withCompletionBlock: { (err,ref) in
+            if err != nil{
+                print(err)
+                return
+            }
+            
+            print("Saved user successfully into Firebase DB")
+            NewAccountController.own.dismiss(animated: true, completion: nil)
+            return
+        })
+    }
+    
     static func addUser(user:Cache){
         
     }

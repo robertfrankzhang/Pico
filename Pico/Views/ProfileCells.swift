@@ -85,7 +85,7 @@ class AddAccountHeader:DatasourceCell{
     }
     
     func add(tap:UITapGestureRecognizer){
-        //add new account
+        ProfileController.own.present(UINavigationController(rootViewController:NewAccountController()), animated: true, completion: nil)
     }
 
 }
@@ -94,7 +94,18 @@ class AccountCell:DatasourceCell{
         didSet{
             var account:Account = (datasourceItem as? Account)!
             name.text = account.username
-            
+            if account.accountKey.lowercased() == "facebook"{
+                accountIcon.image = #imageLiteral(resourceName: "facebook")
+            }
+            if account.accountKey.lowercased() == "instagram"{
+                accountIcon.image = #imageLiteral(resourceName: "instagram")
+            }
+            if account.accountKey.lowercased() == "snapchat"{
+                accountIcon.image = #imageLiteral(resourceName: "snapchat")
+            }
+            if account.accountKey.lowercased() == "twitter"{
+                accountIcon.image = #imageLiteral(resourceName: "twitter")
+            }
         }
     }
     
@@ -106,7 +117,8 @@ class AccountCell:DatasourceCell{
         accountIcon.anchor(topAnchor, left: leftAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 50, heightConstant: 50)
         addSubview(name)
         
-        //make icon different if special accountKey(Snapchat, etc...)
+        addSubview(name)
+        name.anchor(topAnchor, left: accountIcon.rightAnchor, bottom: nil, right: nil, topConstant: 12, leftConstant: 12, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
     }
     
