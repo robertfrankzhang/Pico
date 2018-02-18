@@ -16,7 +16,8 @@ class ThemeColors{
     
     //Blues
     static var DARK_BLUE = UIColor(red: 0, green: 82/255, blue: 98/255, alpha: 1.0)
-    static var CALM_BLUE = UIColor(red: 0, green: 191/255, blue: 255/255, alpha: 1.0)
+    static var CALM_BLUE = UIColor(red: 142/255, green: 199/255, blue: 183/255, alpha: 1.0)
+    static var BRIGHT_BLUE = UIColor(red: 0, green: 191/255, blue: 255/255, alpha: 1.0)
     static var NAVY = UIColor(red: 0, green: 0, blue: 128/255, alpha: 1.0)
     
     //Black/White
