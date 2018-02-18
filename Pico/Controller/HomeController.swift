@@ -14,7 +14,7 @@ import AVFoundation
 import AudioToolbox
 
 class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelegate{
-    /**
+    
     var video = AVCaptureVideoPreviewLayer()
     var session = AVCaptureSession()
     
@@ -147,7 +147,7 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
         let profileController = ProfileController()
         present(UINavigationController(rootViewController: profileController),animated:true,completion: nil)
     }
-    */
+    
     override func viewDidAppear(_ animated: Bool) {
         if (Auth.auth().currentUser == nil){
             print("no user")
