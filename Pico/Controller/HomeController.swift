@@ -20,7 +20,7 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.backgroundColor = .white//ThemeColor.whitish
+        collectionView?.backgroundColor = ThemeColors.LIGHT_GREEN_MAIN
         collectionView?.showsVerticalScrollIndicator = false
         setupNavigationBarItems()
         collectionView?.allowsMultipleSelection = true
@@ -99,7 +99,7 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
     func setupNavigationBarItems(){
         var calendarLabel = UILabel()
         calendarLabel.text = "Scan QR"
-        calendarLabel.textColor = .white//ThemeColor.whitish
+        calendarLabel.textColor = .white
         calendarLabel.font = UIFont.boldSystemFont(ofSize: 25)
         navigationItem.titleView = calendarLabel
         
@@ -147,7 +147,7 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
         friendsListButton.addTarget(self, action: #selector(viewFriends), for: .touchUpInside)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView:userProfileButton),fixedSpace,UIBarButtonItem(customView:friendsListButton)]
         
-        navigationController?.navigationBar.barTintColor = .red//ThemeColor.red
+        navigationController?.navigationBar.barTintColor = ThemeColors.navigationBar
         let bounds = self.navigationController!.navigationBar.bounds
         navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height*1.5)
         navigationController?.navigationBar.isTranslucent = false

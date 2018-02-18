@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 //Dark blue, Navy, gray, dark gray, orange, red, salmon, green, light green main, dark green, blue green, lime green, olive green
 class ThemeColors{
+    //Change these colors to change the entire color scheme
+    static var navigationBar = UIColor(red: 189/255, green: 229/255, blue: 172/255, alpha: 1.0)
+    
     //Blues
     static var DARK_BLUE = UIColor(red: 0, green: 82/255, blue: 98/255, alpha: 1.0)
     static var CALM_BLUE = UIColor(red: 0, green: 191/255, blue: 255/255, alpha: 1.0)
