@@ -66,6 +66,9 @@ class HomeController: DatasourceController, AVCaptureMetadataOutputObjectsDelega
                                 
                                 let alert = UIAlertController(title: "User Detected", message: "Add \(currentUserExists.firstName)?", preferredStyle: .alert)
                                 let alertSuccess = UIAlertController(title: "Success", message: "User \(currentUserExists.firstName) was successfully added!", preferredStyle: .alert)
+                                alertSuccess.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: {(nil) in
+                                    self.session.startRunning()
+                                }))
                                 alert.addAction(UIAlertAction(title: "Add", style: .default, handler: {(nil) in
                                     DB.addUser(user: currentUserExists)
                                     self.session.startRunning()

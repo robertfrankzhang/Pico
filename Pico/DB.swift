@@ -70,7 +70,16 @@ class DB{
                         completionHandler(returnUser)
                     }
                 }
+                
+                returnUser = Cache(userID:userDictionaryRef["userID"] as! String,email: userDictionaryRef["email"] as! String, firstName: userDictionaryRef["firstName"] as! String, lastName: "", profilePic:#imageLiteral(resourceName: "userBlank"), description: userDictionaryRef["description"] as! String, accounts: accountsArray, scanned: scannedArray)
             }
+            
+            if returnUser == nil{
+                completionHandler(nil)
+            }else{
+                completionHandler(returnUser)
+            }
+            
         }, withCancel: nil)
     }
     
