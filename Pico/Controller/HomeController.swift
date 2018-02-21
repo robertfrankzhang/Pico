@@ -6,6 +6,22 @@
 //  Copyright © 2018 iLaunch. All rights reserved.
 //
 
+/*
+ Toggle on/off accounts for scan
+ Able to scan user multiple times to update permissions
+ Add more icons like LinkedIn, Email
+ Make it so that if icon is generic, you can still see the platform name
+ Full platform integration
+ Add Bio
+ Editable accounts
+ Profile distortion fix
+ Check for valid account name
+ Invalid QR Code Alert
+ FB Realtime DB Integration
+ Transfer site end to pico.robertfrankzhang subdomain
+ Default Accounts in beginning that are blank, and have it so if not added username, by default toggled off
+ */
+
 import Foundation
 import UIKit
 import LBTAComponents
