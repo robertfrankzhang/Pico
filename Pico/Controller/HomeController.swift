@@ -17,7 +17,7 @@
  Profile distortion fix
  Check for valid account name
  Invalid QR Code Alert
- FB Realtime DB Integration
+ FB Realtime DB Integration and local object structure change to support it
  Transfer site end to pico.robertfrankzhang subdomain
  Default Accounts in beginning that are blank, and have it so if not added username, by default toggled off
  */
